@@ -1,16 +1,40 @@
-# React + Vite
+# Proyecto Gestor de Tareas - React + Node.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Descripcion del proyecto
 
-Currently, two official plugins are available:
+Aplicacion web que permite a un usuario registrarse, iniciar sesion y gestionar sus tareas personales.  
+El sistema utiliza autenticacion mediante cookies, y permite crear, editar, eliminar y marcar tareas como completadas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Incluye rutas privadas y publicas, validacion del lado del servidor y un diseño moderno con TailwindCSS.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 2. Instalacion del proyecto
 
-## Expanding the ESLint configuration
+### Requisitos previos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js instalado
+- Base de datos configurada (MariaDB o MySQL)
+- Backend ejecutandose en `http://localhost:3000`
+- Frontend ejecutandose en `http://localhost:5173`
+
+### Pasos para instalar
+
+### (backend)
+
+- npm i / npm install
+- configurar variables de entorno:
+  DB_NAME=nombre_de_tu_bd
+  DB_USER=root
+  DB_PASSWORD=""
+  DB_HOST=localhost
+  DB_DIALECT=mysql
+  DB_PORT=3306
+  JWT_SECRET=jwt_secret
+  PORT=3000
+- realizar npm run dev
+
+### frontend
+
+- instalar dep: npm i / npm install
+- levantar server: npm run dev
