@@ -4,7 +4,7 @@ export const Home = () => {
       <div className="max-w-lg bg-white/10 backdrop-blur-lg border border-white/20 p-10 rounded-2xl text-center shadow-2xl">
         <h1 className="text-4xl font-bold mb-4">¡Bienvenido! </h1>
         <p className="text-lg text-blue-100 mb-6">
-          Este es tu panel principal. Desde aquí puedes acceder a tu perfil o
+          Este es tu panel principal. Desde acá puedes acceder a tu perfil o
           administrar tus tareas.
         </p>
         <div className="flex justify-center gap-4">
