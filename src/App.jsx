@@ -10,6 +10,36 @@ import { Tasks } from "./pages/Tasks";
 import { Navbar } from "./components/Navbar";
 
 export const App = () => {
+  const [authStatus, setAuthStatus] = useState("checking");
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/profile", {
+          credentials: "include",
+        });
+        setAuthStatus(res.ok ? "authenticated" : "not-authenticated");
+      } catch {
+        setAuthStatus("not-authenticated");
+      }
+    };
+    checkAuth();
+  }, []);
+
+  const handleLoginSuccess = () => setAuthStatus("authenticated");
+
+  const handleLogout = async () => {
+    await fetch("http://localhost:3000/api/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    setAuthStatus("not-authenticated");
+  };
+
+  if (authStatus === "checking") {
+    return <p className="text-center mt-10">Verificando sesion...</p>;
+  }
+
   return (
     <>
       <Navbar authStatus={authStatus} onLogout={handleLogout} />
