@@ -10,6 +10,35 @@ export const Login = ({ onLoginSuccess }) => {
 
   const [loading, setLoading] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(formState),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.message || "Inicio de sesión exitoso");
+        onLoginSuccess();
+      } else {
+        alert(data.message || "Usuario o contraseña incorrectos");
+        resetForm();
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error al conectar con el servidor");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-400 via-indigo-500 to-blue-600 text-white p-4">
       <div className="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-2xl">
